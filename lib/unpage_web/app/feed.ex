@@ -5,6 +5,7 @@ defmodule UnPageWeb.App.Feed do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, user: user(), entries: make_call(UnLib.Entries.list(user())))}
+    {:ok, assign(socket, user: user(), entries: make_call(UnLib.Entries.list(user()))),
+     layout: {UnPageWeb.LayoutView, "reader.html"}}
   end
 end

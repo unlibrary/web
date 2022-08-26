@@ -1,15 +1,7 @@
-.pageroot {
+div[data-phx-main="true"] {
+  height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.pagefooter {
-  text-align: center;
-  color: var(--gray);
-}
-
-.pagefooter a {
-  text-decoration: none;
 }
 
 .pagecontent {
@@ -18,6 +10,16 @@
   inline-size: 100%;
 }
 
-.pagecontent > div {
-  flex-grow: 1;
+.pagefooter {
+  text-align: center;
+  color: var(--gray);
+  padding: calc(var(--s1) / 3);
+}
+
+.pagefooter a {
+  text-decoration: none;
+}
+
+.pageheader nav ul li:first-child {
+  list-style: none;
 }

@@ -4,6 +4,6 @@ defmodule UnPageWeb.Pages.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket}
+    {:ok, socket, layout: {UnPageWeb.LayoutView, "page.html"}}
   end
 end

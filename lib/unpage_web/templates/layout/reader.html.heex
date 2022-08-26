@@ -1,0 +1,25 @@
+<div class="the-sidebar height:full scale:small">
+  <aside class="padding:1">
+    <h2 hidden>Menu</h2>
+    <ul>
+      <li>
+        <.link navigate="/reader">All articles</.link>
+      </li>
+    </ul>
+
+    <h3>Sources</h3>
+
+    <ul>
+      <%= for source <- @user.sources do %>
+        <li>
+          <.link navigate={"/reader/source/#{source.id}"}>
+            <%= source.name %>
+          </.link>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+  <div class="feed">
+    <%= @inner_content %>
+  </div>
+</div>
