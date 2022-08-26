@@ -1,0 +1,17 @@
+.pageroot {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagefooter {
+  text-align: center;
+  color: var(--gray);
+}
+
+.pagefooter a {
+  text-decoration: none;
+}
+
+.pagecontent {
+  flex-grow: 1;
+}

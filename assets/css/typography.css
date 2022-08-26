@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: calc(14px + (20 - 14) * ((100vw - 300px) / (1000 - 300)));
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
+}
+
+h2 {
+  font-style: italic;
+}
+
+.sitetitle {
+  font-size: 2rem;
+}
+
+ul {
+  padding-inline-start: 2em;
+}

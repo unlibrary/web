@@ -1,0 +1,158 @@
+@import "./liveview.css";
+@import "./typography.css";
+@import "./components.css";
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Theme */
+
+:root {
+  --primary: #ff2961;
+  --foreground: #1c1626;
+  --background: #fefffb;
+  --secondary: #59bac3;
+
+  --gray: #adadad;
+  --light-gray: #e5e7eb;
+
+  --ratio: 1.2;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+}
+
+/* Global styles */
+
+p a {
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration-thickness: 2px;
+}
+
+p a:hover {
+  opacity: 0.8;
+}
+
+p a:active {
+  color: var(--foreground);
+}
+
+/* Atoms */
+
+.button {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  font-weight: bold;
+  padding: var(--s1);
+  border-radius: 0.375rem;
+  border: 1px solid var(--light-gray);
+  text-decoration: none;
+  color: var(--foreground);
+  display: block;
+  font-size: 0.8em;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.cta {
+  color: var(--background);
+  background: var(--primary);
+}
+
+/* Layout */
+
+.the-center {
+  box-sizing: content-box;
+  max-inline-size: 60ch;
+  padding-inline-start: var(--s1);
+  padding-inline-end: var(--s1);
+  margin-inline: auto;
+}
+
+.the-stack > * + * {
+  margin-block-start: var(--s1);
+}
+
+/* Utilities */
+
+.size\:tiny {
+  font-size: 0.5em !important;
+}
+
+.size\:small {
+  font-size: 0.7em !important;
+}
+
+.size\:base {
+  font-size: 1em !important;
+}
+
+.size\:large {
+  font-size: 1.5em !important;
+}
+
+.size\:huge {
+  font-size: 3em !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.justify\:center {
+  justify-content: center;
+}
+
+.gap\:\.5 {
+  gap: calc(var(--s1) / 2);
+}
+
+.gap\:1 {
+  gap: var(--s1);
+}
+
+.gap\:2 {
+  gap: var(--s2);
+}
+
+.gap\:3 {
+  gap: var(--s3);
+}
+
+.gap\:4 {
+  gap: var(--s4);
+}
+
+.gap\:5 {
+  gap: var(--s5);
+}
