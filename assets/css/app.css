@@ -44,18 +44,32 @@ body {
 
 /* Global styles */
 
-p a {
+p a,
+td a,
+ul a {
   color: var(--primary);
   font-weight: bold;
   text-decoration-thickness: 2px;
 }
 
-p a:hover {
+p a:hover,
+td a:hover,
+ul a:hover {
   opacity: 0.8;
 }
 
-p a:active {
+p a:active,
+td a:active,
+ul a:active {
   color: var(--foreground);
+}
+
+table th {
+  text-align: start;
+}
+
+table td {
+  padding-block: calc(var(--s1) / 3);
 }
 
 /* Atoms */
@@ -93,6 +107,24 @@ p a:active {
 
 .the-stack > * + * {
   margin-block-start: var(--s1);
+}
+
+.the-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+.the-sidebar > :first-child {
+  flex-basis: 17em;
+  flex-grow: 1;
+  background: var(--light-gray);
+}
+
+.the-sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
 }
 
 /* Utilities */
@@ -155,4 +187,60 @@ p a:active {
 
 .gap\:5 {
   gap: var(--s5);
+}
+
+.padding\:\.5 {
+  padding: calc(var(--s1) / 2);
+}
+
+.padding\:1 {
+  padding: var(--s1);
+}
+
+.padding\:2 {
+  padding: var(--s2);
+}
+
+.padding\:3 {
+  padding: var(--s3);
+}
+
+.padding\:4 {
+  padding: var(--s4);
+}
+
+.padding\:5 {
+  padding: var(--s5);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.height\:full {
+  block-size: 100% !important;
+}
+
+.width\:full {
+  inline-size: 100% !important;
+}
+
+.scale\:small {
+  font-size: 80%;
+}
+
+.scale\:base {
+  font-size: 100%;
+}
+
+.scale\:huge {
+  font-size: 120%;
 }

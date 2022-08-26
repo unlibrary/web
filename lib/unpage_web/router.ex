@@ -14,9 +14,15 @@ defmodule UnPageWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", UnPageWeb do
+  scope "/", UnPageWeb.Pages do
     pipe_through :browser
 
-    live "/", Pages.Index
+    live "/", Index
+  end
+
+  scope "/reader", UnPageWeb.App do
+    pipe_through :browser
+
+    live "/", Feed
   end
 end
