@@ -314,6 +314,10 @@ audio {
   justify-content: space-between !important;
 }
 
+.items\:center {
+  align-items: center;
+}
+
 .gap\:\.5 {
   gap: var(--s-4) !important;
 }
@@ -399,6 +403,14 @@ audio {
 
 .margin\:0 {
   margin: 0 !important;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .before\:\~ {

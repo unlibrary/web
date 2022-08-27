@@ -1,4 +1,12 @@
-<h2><%= @title %></h2>
+<header class="flex justify:between items:center">
+  <h2><%= @title %></h2>
+
+  <%= if assigns[:show_mark_all_read_button?] do %>
+    <button class="button inline" phx-click="all-read" style="margin-inline-end: var(--s1)">
+      Mark all as read
+    </button>
+  <% end %>
+</header>
 
 <table class="feed width:full">
   <thead class="width:full">
