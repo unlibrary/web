@@ -23,7 +23,8 @@ defmodule UnPageWeb do
 
       import Plug.Conn
       import UnPageWeb.Gettext
-      alias UnPageWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
     end
   end
 
@@ -69,11 +70,20 @@ defmodule UnPageWeb do
 
   def router do
     quote do
-      use Phoenix.Router
+      use Phoenix.Router, helpers: false
 
       import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+    end
+  end
+
+  def verified_routes do
+    quote do
+      use Phoenix.VerifiedRoutes,
+        endpoint: UnPageWeb.Endpoint,
+        router: UnPageWeb.Router,
+        statics: UnPageWeb.static_paths()
     end
   end
 
@@ -97,8 +107,13 @@ defmodule UnPageWeb do
 
       import UnPageWeb.ErrorHelpers
       import UnPageWeb.Gettext
-      alias UnPageWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
     end
+  end
+
+  def static_paths do
+    ~w(assets fonts images favicon.ico robots.txt)
   end
 
   @doc """

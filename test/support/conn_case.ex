@@ -24,10 +24,13 @@ defmodule UnPageWeb.ConnCase do
       import Phoenix.ConnTest
       import UnPageWeb.ConnCase
 
-      alias UnPageWeb.Router.Helpers, as: Routes
-
       # The default endpoint for testing
       @endpoint UnPageWeb.Endpoint
+
+      use Phoenix.VerifiedRoutes,
+        endpoint: @endpoint,
+        router: UnPageWeb.Router,
+        statics: UnPageWeb.static_paths()
     end
   end
 

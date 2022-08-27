@@ -48,14 +48,24 @@ code {
   text-transform: none;
 }
 
+.entry {
+  line-height: 1.6875em;
+}
+
 .entry .title {
   font-family: var(--font-sans);
+  margin: 1em 0 0.5em;
+  line-height: 1.5em;
+  word-wrap: break-word;
 }
 
 .entry .content {
   font-family: var(--font-serif);
-  line-height: 1.6875em;
   color: var(--foreground);
+}
+
+.entry .content p {
+  margin-block: 1.3em;
 }
 
 .section-heading {

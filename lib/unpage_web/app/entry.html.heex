@@ -1,0 +1,6 @@
+<article class="entry the-center">
+  <h1 class="title"><%= @entry.title %></h1>
+  <div class="content">
+    <%= @entry.body |> HtmlSanitizeEx.html5() |> raw() %>
+  </div>
+</article>

@@ -27,7 +27,7 @@ defmodule UnPage.MixProject do
 
   defp deps do
     [
-      {:phoenix, "~> 1.6.11"},
+      {:phoenix, github: "phoenixframework/phoenix", override: true},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
@@ -37,7 +37,8 @@ defmodule UnPage.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:html_sanitize_ex, "~> 1.4"}
     ]
   end
 

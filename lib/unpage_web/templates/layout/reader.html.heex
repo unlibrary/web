@@ -3,7 +3,10 @@
     <h2 class="section-heading">Unlibrary</h2>
     <ul>
       <li>
-        <.link navigate="/reader">All articles</.link>
+        <.link navigate={~p"/reader"}>All articles</.link>
+      </li>
+      <li>
+        <.link navigate={~p"/reader/unread"}>Unread</.link>
       </li>
     </ul>
 
@@ -12,7 +15,7 @@
     <ul>
       <%= for source <- @user.sources do %>
         <li>
-          <.link navigate={"/reader/source/#{source.id}"}>
+          <.link navigate={~p"/reader/source/#{source.id}"}>
             <%= source.name %>
           </.link>
         </li>

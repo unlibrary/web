@@ -24,5 +24,8 @@ defmodule UnPageWeb.Router do
     pipe_through :browser
 
     live "/", Feed
+    live "/unread", Feed
+    live "/source/:id", Source
+    live "/entry/:id", Entry
   end
 end

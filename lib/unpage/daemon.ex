@@ -24,7 +24,7 @@ defmodule UnPage.Daemon do
 
   @spec online? :: boolean()
   def online? do
-    case Node.connect(get_server() |> IO.inspect()) do
+    case Node.connect(get_server()) do
       :ignored -> false
       boolean -> boolean
     end
