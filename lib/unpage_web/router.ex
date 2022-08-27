@@ -1,5 +1,6 @@
 defmodule UnPageWeb.Router do
   use UnPageWeb, :router
+  alias UnPageWeb.Hooks
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,18 +15,23 @@ defmodule UnPageWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", UnPageWeb.Pages do
-    pipe_through :browser
+  live_session :pages, on_mount: [Hooks.FetchUser] do
+    scope "/", UnPageWeb.Pages do
+      pipe_through :browser
 
-    live "/", Index
+      live "/", Index
+      live "/login", Login
+    end
   end
 
-  scope "/reader", UnPageWeb.App do
-    pipe_through :browser
+  live_session :reader, on_mount: [Hooks.FetchUser, Hooks.RequireAuthenticatedUser] do
+    scope "/reader", UnPageWeb.App do
+      pipe_through :browser
 
-    live "/", Feed
-    live "/unread", Feed
-    live "/source/:id", Source
-    live "/entry/:id", Entry
+      live "/", NewArticles
+      live "/all", AllArticles
+      live "/source/:id", Source
+      live "/entry/:id", Entry
+    end
   end
 end

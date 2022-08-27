@@ -1,12 +1,12 @@
 <div class="the-sidebar height:full scale:small">
-  <aside class="padding:.5">
+  <aside class="sidebar">
     <h2 class="section-heading">Unlibrary</h2>
     <ul>
-      <li>
-        <.link navigate={~p"/reader"}>All articles</.link>
+      <li class="before:icon icon:book-open">
+        <.link class="color:secondary" navigate={~p"/reader"}>New articles</.link>
       </li>
-      <li>
-        <.link navigate={~p"/reader/unread"}>Unread</.link>
+      <li class="before:icon icon:archive-box">
+        <.link class="color:secondary" navigate={~p"/reader/all"}>All articles</.link>
       </li>
     </ul>
 
@@ -14,15 +14,15 @@
 
     <ul>
       <%= for source <- @user.sources do %>
-        <li>
-          <.link navigate={~p"/reader/source/#{source.id}"}>
+        <li class="before:~">
+          <.link class="color:secondary" navigate={~p"/reader/source/#{source.id}"}>
             <%= source.name %>
           </.link>
         </li>
       <% end %>
     </ul>
   </aside>
-  <div class="feed">
+  <div class="flex flex-col">
     <%= @inner_content %>
   </div>
 </div>

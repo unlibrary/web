@@ -1,21 +1,19 @@
-<h2>All articles</h2>
+<h2><%= @title %></h2>
 
-<table class="width:full">
-  <thead>
+<table class="feed width:full">
+  <thead class="width:full">
     <tr>
       <th>Title</th>
-      <th>Source</th>
       <th>Date</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="width:full">
     <%= for entry <- @entries do %>
-      <tr>
+      <tr class={if entry.read?, do: "read"}>
         <td>
           <.link navigate={"/reader/entry/#{entry.id}"}><%= entry.title %></.link>
         </td>
-        <td><%= # entry.source.name %></td>
-        <td><%= entry.date |> NaiveDateTime.to_string() %></td>
+        <td><%= entry.date |> Calendar.strftime("%Y-%m-%d") %></td>
       </tr>
     <% end %>
   </tbody>

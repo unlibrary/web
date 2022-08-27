@@ -1,0 +1,16 @@
+<div class="the-tile">
+  <div>
+    <%= if @error do %>
+      <p class="error"><%= @error %></p>
+    <% end %>
+    <.form :let={f} for={:login} phx-submit="login" class="the-form">
+      <%= label(f, :username, class: "label") %>
+      <%= text_input(f, :username, class: "input") %>
+
+      <%= label(f, :password, class: "label") %>
+      <%= password_input(f, :password, class: "input") %>
+
+      <%= submit("Sign in", class: "button cta") %>
+    </.form>
+  </div>
+</div>

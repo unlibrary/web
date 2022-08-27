@@ -13,7 +13,7 @@ div[data-phx-main="true"] {
 .pagefooter {
   text-align: center;
   color: var(--gray-700);
-  padding: calc(var(--s1) / 3);
+  padding: var(--s-3);
 }
 
 .pagefooter a {
@@ -22,4 +22,53 @@ div[data-phx-main="true"] {
 
 .pageheader nav ul li:first-child {
   list-style: none;
+}
+
+.entry {
+  line-height: 1.6875em;
+}
+
+.entry .title {
+  font-family: var(--font-sans);
+  margin: 1em 0 0.5em;
+  line-height: 1.5em;
+  word-wrap: break-word;
+}
+
+.entry .content {
+  font-family: var(--font-serif);
+  color: var(--foreground);
+  flex-grow: 1;
+}
+
+.entry .content p {
+  margin-block: 1.3em;
+}
+
+.entry .content a {
+  text-decoration: underline;
+  color: currentColor;
+}
+
+.entry {
+  max-inline-size: 80ch !important;
+  font-size: 1rem;
+}
+
+.entry .footer {
+  margin: 4em auto 1em;
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gray-800);
+}
+
+.sidebar {
+  background: var(--foreground);
+  color: var(--blue-100);
+}
+
+.feed .read,
+.feed .read a {
+  color: var(--gray-500);
 }

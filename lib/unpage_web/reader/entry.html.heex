@@ -1,0 +1,13 @@
+<article id="entry" class="entry the-center flex flex-col flex-grow" data-url={@url}>
+  <h1 class="title"><a href={@url}><%= @title %></a></h1>
+
+  <div class="content">
+    <%= @body |> raw() %>
+  </div>
+
+  <footer class="footer">
+    <p>
+      © 2022 ~<%= @author %>
+    </p>
+  </footer>
+</article>
