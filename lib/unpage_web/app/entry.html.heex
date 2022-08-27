@@ -1,6 +1,15 @@
+<base href={@entry.url} />
+
 <article class="entry the-center">
-  <h1 class="title"><%= @entry.title %></h1>
+  <h1 class="title"><a href={@entry.url}><%= @entry.title %></a></h1>
+
   <div class="content">
     <%= @entry.body |> HtmlSanitizeEx.html5() |> raw() %>
   </div>
+
+  <footer class="footer">
+    <p>
+      © 2022 ~<%= @entry.source.name %>
+    </p>
+  </footer>
 </article>

@@ -23,8 +23,3 @@ div[data-phx-main="true"] {
 .pageheader nav ul li:first-child {
   list-style: none;
 }
-
-.entry {
-  max-inline-size: 80ch !important;
-  font-size: 1rem;
-}

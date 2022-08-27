@@ -68,6 +68,19 @@ code {
   margin-block: 1.3em;
 }
 
+.entry {
+  max-inline-size: 80ch !important;
+  font-size: 1rem;
+}
+
+.entry .footer {
+  margin: 4em auto 1em;
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gray-800);
+}
+
 .section-heading {
   font-family: var(--font-sans);
   text-transform: uppercase;

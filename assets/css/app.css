@@ -25,6 +25,7 @@ body {
   --background: #fefffb;
   --secondary: #59bac3;
 
+  --gray-800: #767676;
   --gray-700: #8a8a8a;
   --gray-500: #adadad;
   --gray-250: #cfcfcf;
@@ -50,6 +51,11 @@ body {
 }
 
 /* Global styles */
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
 
 p a,
 td a,
@@ -77,6 +83,13 @@ table th {
 
 table td {
   padding-block: calc(var(--s1) / 3);
+}
+
+img,
+picture,
+video,
+audio {
+  max-width: 100%;
 }
 
 /* Atoms */
@@ -246,15 +259,11 @@ table td {
 }
 
 .scale\:small {
-  font-size: 65% !important;
+  font-size: calc(15px + (16 - 15) * ((100vw - 300px) / (1000 - 300)));
 }
 
 .scale\:base {
   font-size: 100% !important;
-}
-
-.scale\:huge {
-  font-size: 120% !important;
 }
 
 .margin\:0 {
