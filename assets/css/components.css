@@ -68,6 +68,14 @@ div[data-phx-main="true"] {
   color: var(--blue-100);
 }
 
+.sidebar .sidebar-heading {
+  margin: 12px;
+  border-radius: 4px;
+  background-color: #1c2a3a;
+  width: 276px;
+  padding-inline-start: var(--s0);
+}
+
 .feed .read,
 .feed .read a {
   color: var(--gray-500);

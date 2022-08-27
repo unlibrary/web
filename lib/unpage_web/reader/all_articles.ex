@@ -9,7 +9,7 @@ defmodule UnPageWeb.App.AllArticles do
       socket
       |> assign(:title, "All articles")
       |> assign(:entries, make_call(UnLib.Entries.list_all(user())))
-      |> assign(:show_mark_all_read_button?, true)
+      |> assign(:show_feed_controls?, true)
 
     {:ok, socket, layout: {UnPageWeb.LayoutView, "reader.html"}}
   end
@@ -22,7 +22,15 @@ defmodule UnPageWeb.App.AllArticles do
   @impl true
   def handle_event("all-read", _value, socket) do
     make_call(UnLib.Entries.read_all(user()))
-    entries = UnLib.Entries.list_all(user())
+    entries = make_call(UnLib.Entries.list_all(user()))
+
+    {:noreply, assign(socket, :entries, entries)}
+  end
+
+  @impl true
+  def handle_event("prune", _value, socket) do
+    make_call(UnLib.Entries.prune(user()))
+    entries = make_call(UnLib.Entries.list_all(user()))
 
     {:noreply, assign(socket, :entries, entries)}
   end

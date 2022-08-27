@@ -1,12 +1,15 @@
 <div class="the-sidebar height:full scale:small">
   <aside class="sidebar">
-    <h2 class="section-heading">Unlibrary</h2>
+    <header class="sidebar-heading">
+      <h1>Unlibrary</h1>
+    </header>
+
     <ul>
       <li class="before:icon icon:book-open">
-        <.link class="color:secondary" navigate={~p"/reader"}>New articles</.link>
+        <.link class="color:secondary" navigate={~p"/reader"}>All articles</.link>
       </li>
-      <li class="before:icon icon:archive-box">
-        <.link class="color:secondary" navigate={~p"/reader/all"}>All articles</.link>
+      <li class="before:icon icon:bell-alert">
+        <.link class="color:secondary" navigate={~p"/reader/new"}>New articles</.link>
       </li>
     </ul>
 
