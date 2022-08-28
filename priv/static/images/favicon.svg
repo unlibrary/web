@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="127.000000pt" height="127.000000pt"><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="127.000000pt" height="127.000000pt" viewBox="0 0 127.000000 127.000000" preserveAspectRatio="xMidYMid meet">
+<g transform="translate(0.000000,127.000000) scale(0.100000,-0.100000)" stroke="none" class="icon">
+<path d="M52 1078 c2 -15 13 -24 35 -30 18 -5 36 -14 40 -21 4 -6 10 -161 13 -342 l5 -330 33 -67 c58 -118 153 -175 308 -185 179 -12 315 76 365 237 7 21 14 169 18 365 l6 330 35 11 c23 8 36 19 38 33 3 20 0 21 -113 21 -114 0 -116 0 -113 -22 2 -14 13 -24 32 -29 16 -5 33 -14 37 -21 12 -19 11 -616 -1 -659 -27 -97 -99 -150 -205 -150 -112 0 -172 47 -194 152 -16 74 -15 631 2 651 6 9 29 21 50 28 27 8 37 17 35 28 -3 15 -27 17 -216 20 l-213 2 3 -22z"></path>
+<path d="M1085 827 c-95 -34 -121 -47 -123 -63 -2 -15 5 -22 30 -29 l33 -10 3 -245 c1 -135 0 -255 -3 -267 -3 -12 -18 -25 -35 -31 -20 -8 -30 -18 -30 -31 0 -20 5 -21 153 -21 l152 0 0 330 c0 181 -3 330 -7 330 -5 0 -8 13 -8 28 0 29 -16 52 -34 51 -6 0 -65 -19 -131 -42z"></path>
+</g>
+</svg><style>
+@media (prefers-color-scheme: light) { .icon {
+fill: #ff2961 }}
+@media (prefers-color-scheme: dark) { .icon{ fill: #ffffff } }
+</style></svg>

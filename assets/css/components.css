@@ -80,3 +80,17 @@ div[data-phx-main="true"] {
 .feed .read a {
   color: var(--gray-500);
 }
+
+.feed td:first-child {
+  width: 99%;
+}
+
+.feed td {
+  padding-inline-end: 30px;
+}
+
+.sitetitle {
+  font-family: var(--font-display);
+  font-size: 1em !important;
+  font-weight: bolder;
+}

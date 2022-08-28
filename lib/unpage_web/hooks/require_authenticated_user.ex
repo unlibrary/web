@@ -3,7 +3,6 @@ defmodule UnPageWeb.Hooks.RequireAuthenticatedUser do
   LiveView hook to check wether authenticated user is set and
   navigate to login if it isn't.
   """
-  import UnPage.Daemon
   use UnPageWeb, :live_hook
 
   def on_mount(_env, _params, _session, socket) do

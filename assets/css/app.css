@@ -21,6 +21,7 @@ body {
 
 :root {
   --primary: #ff2961;
+  --primary-alt: #dd2052;
   --foreground: #0d1829;
   --foreground-alt: #1c2a3a;
   --background: #fefffb;
@@ -36,6 +37,7 @@ body {
   --blue-700: #91a4b7;
   --blue-500: #cad5e0;
   --blue-250: #d2ddee;
+  --blue-150: #ecf0f1;
   --blue-100: #f7f9fc;
 
   --ratio: 1.2;
@@ -142,10 +144,6 @@ table th {
   text-align: start;
 }
 
-table td {
-  padding-block: var(--s-5);
-}
-
 img,
 picture,
 video,
@@ -156,26 +154,49 @@ audio {
 /* Atoms */
 
 .button,
+.button-small,
 .input {
   box-shadow: var(--box-shadow-small);
   font-weight: bold;
-  padding: var(--s-2);
-  border-radius: 0.375rem;
   border: 1px solid var(--blue-500);
-  text-decoration: none;
+  background: var(--background);
   color: var(--foreground);
+  text-decoration: none;
   display: block;
   font-size: 0.9em;
 }
 
-.button:hover {
+.button-small {
+  padding: var(--s-5);
+  border-radius: 0.125em;
+}
+
+.button,
+.input {
+  padding: var(--s-2);
+  border-radius: 0.375rem;
+}
+
+.button:hover,
+.button-small:hover {
   opacity: 0.9;
   cursor: pointer;
+  background: var(--blue-150);
+}
+
+.button:active,
+.button-small:active {
+  background: var(--gray-100);
 }
 
 .cta {
   color: var(--background);
   background: var(--primary);
+}
+
+.cta:hover,
+.cta:active {
+  background: var(--primary-alt);
 }
 
 .section-heading,
@@ -276,43 +297,43 @@ audio {
 /* Utilities */
 
 .size\:tiny {
-  font-size: 0.5em !important;
+  font-size: 0.5em;
 }
 
 .size\:small {
-  font-size: 0.7em !important;
+  font-size: 0.7em;
 }
 
 .size\:base {
-  font-size: 1em !important;
+  font-size: 1em;
 }
 
 .size\:large {
-  font-size: 1.5em !important;
+  font-size: 1.5em;
 }
 
 .size\:huge {
-  font-size: 3em !important;
+  font-size: 3em;
 }
 
 .flex {
-  display: flex !important;
+  display: flex;
 }
 
 .flex-col {
-  flex-direction: column !important;
+  flex-direction: column;
 }
 
 .flex-grow {
-  flex-grow: 1 !important;
+  flex-grow: 1;
 }
 
 .justify\:center {
-  justify-content: center !important;
+  justify-content: center;
 }
 
 .justify\:between {
-  justify-content: space-between !important;
+  justify-content: space-between;
 }
 
 .items\:center {
@@ -320,51 +341,55 @@ audio {
 }
 
 .gap\:\.5 {
-  gap: var(--s-4) !important;
+  gap: var(--s-4);
 }
 
 .gap\:1 {
-  gap: var(--s1) !important;
+  gap: var(--s1);
 }
 
 .gap\:2 {
-  gap: var(--s2) !important;
+  gap: var(--s2);
 }
 
 .gap\:3 {
-  gap: var(--s3) !important;
+  gap: var(--s3);
 }
 
 .gap\:4 {
-  gap: var(--s4) !important;
+  gap: var(--s4);
 }
 
 .gap\:5 {
-  gap: var(--s5) !important;
+  gap: var(--s5);
+}
+
+.padding\:-1 {
+  padding: var(--s-1);
 }
 
 .padding\:\.5 {
-  padding: var(--s-4) !important;
+  padding: var(--s-4);
 }
 
 .padding\:1 {
-  padding: var(--s1) !important;
+  padding: var(--s1);
 }
 
 .padding\:2 {
-  padding: var(--s2) !important;
+  padding: var(--s2);
 }
 
 .padding\:3 {
-  padding: var(--s3) !important;
+  padding: var(--s3);
 }
 
 .padding\:4 {
-  padding: var(--s4) !important;
+  padding: var(--s4);
 }
 
 .padding\:5 {
-  padding: var(--s5) !important;
+  padding: var(--s5);
 }
 
 .sr-only {
@@ -380,11 +405,11 @@ audio {
 }
 
 .height\:full {
-  block-size: 100% !important;
+  block-size: 100%;
 }
 
 .width\:full {
-  inline-size: 100% !important;
+  inline-size: 100%;
 }
 
 .scale\:small {
@@ -399,11 +424,11 @@ audio {
 }
 
 .scale:large {
-  font-size: 120% !important;
+  font-size: 120%;
 }
 
 .margin\:0 {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .block {
@@ -424,13 +449,15 @@ audio {
 }
 
 .before\:icon::before,
-.the-icon-parent .icon {
+.icon {
   vertical-align: -0.125em;
   height: 1em;
   height: 1.3cap;
   width: 1em;
   width: 1.3cap;
   display: inline;
+  padding-inline: 0.16em;
+  box-sizing: content-box;
 }
 
 .before\:icon::before {

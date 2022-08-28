@@ -12,6 +12,7 @@ defmodule UnPageWeb.App.Entry do
       socket
       |> assign(:user, user())
       |> assign(:title, entry.title)
+      |> assign(:page_title, "#{entry.title} by ~#{entry.source.name}")
       |> assign(:body, entry.body |> HtmlSanitizeEx.html5())
       |> assign(:url, entry.url)
       |> assign(:author, entry.source.name)
