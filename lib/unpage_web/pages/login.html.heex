@@ -3,7 +3,7 @@
     <%= if @error do %>
       <p class="error"><%= @error %></p>
     <% end %>
-    <.form :let={f} for={:login} phx-submit="login" class="the-form">
+    <.form :let={f} for={:login} phx-submit="login" class="the-form square">
       <%= label(f, :username, class: "label") %>
       <%= text_input(f, :username, class: "input") %>
 

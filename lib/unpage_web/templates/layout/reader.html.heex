@@ -1,35 +1,52 @@
 <div class="the-sidebar height:full scale:small">
-  <aside class="sidebar">
-    <header class="sidebar-heading">
-      <h1>Unlibrary</h1>
-    </header>
-
-    <ul>
-      <li class="before:icon icon:book-open">
-        <.link class="color:secondary" navigate={url(~p"/reader")}>All articles</.link>
-      </li>
-      <li class="before:icon icon:bell-alert">
-        <.link class="color:secondary" navigate={url(~p"/reader/new")}>New articles</.link>
-      </li>
-      <li class="before:icon icon:hashtag">
-        <.link class="color:secondary" navigate={url(~p"/reader/discover")}>Discover</.link>
-      </li>
-    </ul>
-
-    <h3 class="section-heading">Sources</h3>
-
-    <ul>
-      <%= for source <- @user.sources do %>
-        <li class="before:~">
-          <.link
-            class="color:secondary font:light"
-            navigate={url(~p"/reader/source/#{source.id}")}
+  <aside class="sidebar flex flex-col justify:between">
+    <div>
+      <.link class="the-icon-parent add-source-button" navigate={url(~p"/reader/source/add")}>
+        <span class="inline">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="white"
+            class="icon inline"
           >
-            <%= source.name %>
-          </.link>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Add source
+        </span>
+      </.link>
+      <header class="sidebar-heading">
+        <h1>Unlibrary</h1>
+      </header>
+
+      <ul>
+        <li class="before:icon icon:book-open">
+          <.link class="color:secondary" navigate={url(~p"/reader")}>All articles</.link>
         </li>
-      <% end %>
-    </ul>
+        <li class="before:icon icon:bell-alert">
+          <.link class="color:secondary" navigate={url(~p"/reader/new")}>New articles</.link>
+        </li>
+        <li class="before:icon icon:hashtag">
+          <.link class="color:secondary" navigate={url(~p"/reader/discover")}>Discover</.link>
+        </li>
+      </ul>
+
+      <h3 class="section-heading">Sources</h3>
+
+      <ul>
+        <%= for source <- @user.sources do %>
+          <li class="before:~">
+            <.link
+              class="color:secondary font:light"
+              navigate={url(~p"/reader/source/#{source.id}")}
+            >
+              <%= source.name %>
+            </.link>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </aside>
   <div class="flex flex-col">
     <%= @inner_content %>

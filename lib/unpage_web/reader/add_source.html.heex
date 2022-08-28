@@ -1,0 +1,22 @@
+<article class="the-center">
+  <h2>Add source</h2>
+
+  <section>
+    <.form :let={f} for={:source} phx-submit="add" class="the-form">
+      <div class="width:full flex flex-row gap:.5">
+        <%= url_input(f, :url,
+          class: "input flex-grow",
+          placeholder: "https://example.com/feed.xml"
+        ) %>
+        <%= select(f, :type, [:rss, :atom, :mf2], class: "input width:min") %>
+      </div>
+
+      <%= label(f, :name, class: "label") %>
+
+      <div class="width:full flex flex-row gap:.5">
+        <%= text_input(f, :name, class: "input") %>
+      </div>
+      <%= submit("Add", class: "button cta width:min") %>
+    </.form>
+  </section>
+</article>

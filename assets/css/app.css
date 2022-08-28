@@ -191,6 +191,7 @@ audio {
 .cta {
   color: var(--background);
   background: var(--primary);
+  border: 1px solid var(--primary-alt);
 }
 
 .cta:hover,
@@ -240,11 +241,11 @@ audio {
 /* Layout */
 
 .the-center {
-  box-sizing: content-box;
-  max-inline-size: 60ch;
+  max-inline-size: 63ch;
   padding-inline-start: var(--s1);
   padding-inline-end: var(--s1);
   margin-inline: auto;
+  inline-size: 100%;
 }
 
 .the-stack > * + * {
@@ -282,14 +283,13 @@ audio {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--s1);
-  aspect-ratio: 1/1;
+  gap: var(--s-2);
 }
 
 .the-form .input,
 .the-form .button,
 .the-form {
-  inline-size: 100%;
+  width: 100%;
 }
 
 .the-icon-parent,
@@ -307,103 +307,103 @@ audio {
 /* Utilities */
 
 .size\:tiny {
-  font-size: 0.5em;
+  font-size: 0.5em !important;
 }
 
 .size\:small {
-  font-size: 0.7em;
+  font-size: 0.7em !important;
 }
 
 .size\:base {
-  font-size: 1em;
+  font-size: 1em !important;
 }
 
 .size\:large {
-  font-size: 1.5em;
+  font-size: 1.5em !important;
 }
 
 .size\:huge {
-  font-size: 3em;
+  font-size: 3em !important;
 }
 
 .flex {
-  display: flex;
+  display: flex !important;
 }
 
 .flex-col {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .flex-grow {
-  flex-grow: 1;
+  flex-grow: 1 !important;
 }
 
 .justify\:center {
-  justify-content: center;
+  justify-content: center !important;
 }
 
 .justify\:between {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .items\:center {
-  align-items: center;
+  align-items: center !important;
 }
 
 .items\:end {
-  align-items: flex-end;
+  align-items: flex-end !important;
 }
 
 .gap\:\.5 {
-  gap: var(--s-4);
+  gap: var(--s-4) !important;
 }
 
 .gap\:1 {
-  gap: var(--s1);
+  gap: var(--s1) !important;
 }
 
 .gap\:2 {
-  gap: var(--s2);
+  gap: var(--s2) !important;
 }
 
 .gap\:3 {
-  gap: var(--s3);
+  gap: var(--s3) !important;
 }
 
 .gap\:4 {
-  gap: var(--s4);
+  gap: var(--s4) !important;
 }
 
 .gap\:5 {
-  gap: var(--s5);
+  gap: var(--s5) !important;
 }
 
 .padding\:-1 {
-  padding: var(--s-1);
+  padding: var(--s-1) !important;
 }
 
 .padding\:\.5 {
-  padding: var(--s-4);
+  padding: var(--s-4) !important;
 }
 
 .padding\:1 {
-  padding: var(--s1);
+  padding: var(--s1) !important;
 }
 
 .padding\:2 {
-  padding: var(--s2);
+  padding: var(--s2) !important;
 }
 
 .padding\:3 {
-  padding: var(--s3);
+  padding: var(--s3) !important;
 }
 
 .padding\:4 {
-  padding: var(--s4);
+  padding: var(--s4) !important;
 }
 
 .padding\:5 {
-  padding: var(--s5);
+  padding: var(--s5) !important;
 }
 
 .sr-only {
@@ -419,11 +419,15 @@ audio {
 }
 
 .height\:full {
-  block-size: 100%;
+  block-size: 100% !important;
 }
 
 .width\:full {
-  inline-size: 100%;
+  inline-size: 100% !important;
+}
+
+.width\:min {
+  inline-size: min-content !important;
 }
 
 .scale\:small {
@@ -438,19 +442,19 @@ audio {
 }
 
 .scale:large {
-  font-size: 120%;
+  font-size: 120% !important;
 }
 
 .margin\:0 {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .block {
-  display: block;
+  display: block !important;
 }
 
 .inline {
-  display: inline;
+  display: inline !important;
 }
 
 .before\:\~ {
@@ -459,16 +463,19 @@ audio {
 }
 
 .color\:secondary {
-  color: var(--secondary);
+  color: var(--secondary) !important;
 }
 
 .font\:light {
   font-weight: normal !important;
 }
 
+.before\:icon::before {
+  margin-block-end: -0.125em !important;
+}
+
 .before\:icon::before,
 .icon {
-  vertical-align: -0.125em;
   height: 1em;
   height: 1.3cap;
   width: 1em;
@@ -476,6 +483,7 @@ audio {
   display: inline;
   padding-inline: 0.16em;
   box-sizing: content-box;
+  vertical-align: -0.125em;
 }
 
 .before\:icon::before {

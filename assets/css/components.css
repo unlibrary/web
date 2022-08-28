@@ -68,12 +68,22 @@ div[data-phx-main="true"] {
   color: var(--blue-100);
 }
 
-.sidebar .sidebar-heading {
+.sidebar .sidebar-heading,
+.sidebar .add-source-button {
   margin: 12px;
   border-radius: 4px;
   background-color: #1c2a3a;
   width: 276px;
+  padding: var(--s-4);
   padding-inline-start: var(--s0);
+}
+
+.sidebar .sidebar-heading {
+  margin-block-end: 25px;
+}
+
+.sidebar .sidebar-heading h1 {
+  margin: 0;
 }
 
 .feed .read,

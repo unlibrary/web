@@ -31,6 +31,7 @@ defmodule UnPageWeb.Router do
       live "/", Feed
       live "/new", Feed
       live "/discover", Discover
+      live "/source/add", AddSource
       live "/source/:id", Source
       live "/entry/:id", Entry
     end
