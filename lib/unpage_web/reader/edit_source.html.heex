@@ -1,0 +1,23 @@
+<article class="the-center">
+  <h2><%= @page_title %></h2>
+
+  <section>
+    <.form :let={f} for={:source} phx-submit="save" class="the-form">
+      <div class="width:full flex flex-row gap:.5">
+        <%= url_input(f, :url,
+          class: "input flex-grow",
+          placeholder: "https://example.com/feed.xml",
+          value: @url
+        ) %>
+        <%= select(f, :type, [:rss, :atom, :mf2], value: @type, class: "input width:min") %>
+      </div>
+
+      <%= label(f, :name, class: "label") %>
+
+      <div class="width:full flex flex-row gap:.5">
+        <%= text_input(f, :name, value: @name, class: "input") %>
+      </div>
+      <%= submit("Save", class: "button cta width:min") %>
+    </.form>
+  </section>
+</article>

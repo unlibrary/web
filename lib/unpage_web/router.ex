@@ -33,6 +33,7 @@ defmodule UnPageWeb.Router do
       live "/discover", Discover
       live "/source/add", AddSource
       live "/source/:id", Source
+      live "/source/:id/edit", EditSource
       live "/entry/:id", Entry
     end
   end

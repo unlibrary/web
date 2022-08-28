@@ -1,4 +1,4 @@
-defmodule UnPageWeb.App.AddSource do
+defmodule UnPageWeb.App.EditSource do
   @moduledoc false
   use UnPageWeb, :live_view
   import UnPage.Daemon
@@ -6,13 +6,15 @@ defmodule UnPageWeb.App.AddSource do
   alias UnPageWeb.ReaderView
 
   @impl true
-  def mount(_params, _session, socket) do
+  def mount(%{"id" => id}, _session, socket) do
+    {:ok, source} = make_call(UnLib.Sources.get(id))
+
     socket =
       socket
-      |> assign(:page_title, "Add source")
-      |> assign(:url, nil)
-      |> assign(:name, nil)
-      |> assign(:type, nil)
+      |> assign(:page_title, "Edit source")
+      |> assign(:url, source.url)
+      |> assign(:name, source.name)
+      |> assign(:type, source.type)
 
     {:ok, socket, layout: {UnPageWeb.LayoutView, "reader.html"}}
   end
@@ -30,8 +32,7 @@ defmodule UnPageWeb.App.AddSource do
       ) do
     type = String.to_existing_atom(type)
     {:ok, source} = make_call(UnLib.Sources.new(url, type, name))
-    {:ok, user} = make_call(UnLib.Sources.add(source, user()))
 
-    {:noreply, assign(socket, :user, user) |> push_navigate(to: ~p"/reader")}
+    {:noreply, assign(socket, user: user, url: source.url, name: source.name, type: source.type)}
   end
 end

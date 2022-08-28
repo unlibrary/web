@@ -6,7 +6,7 @@
 
     <div class="the-grid">
       <%= for source <- @sources do %>
-        <Source.box source={source} />
+        <Source.box source={source} allow_edit?={false} />
       <% end %>
     </div>
   </section>

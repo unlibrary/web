@@ -15,9 +15,22 @@ defmodule UnPageWeb.App.Components.Source do
       />
       <div>
         <p class="type"><%= @source.type %> feed</p>
-        <.link navigate={~p"/reader/source/#{@source.id}"}>
-          <h2 class="title">~<%= @source.name %></h2>
-        </.link>
+        <div class="flex flex-row items:center gap:.5">
+        <h2 class="title">
+          <.link navigate={~p"/reader/source/#{@source.id}"}>
+            ~<%= @source.name %>
+          </.link>
+
+        </h2>
+        <%= if @allow_edit? do %>
+        <.link
+            class="button-small size:small inline"
+            navigate={~p"/reader/source/#{@source.id}/edit"}
+          >
+            edit
+          </.link>
+        <% end %>
+        </div>
         <p class="url"><%= @source.url %></p>
       </div>
     </div>
