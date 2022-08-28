@@ -1,0 +1,13 @@
+<article>
+  <h2>Discover</h2>
+
+  <section>
+    <h3>Sources</h3>
+
+    <div class="the-grid">
+      <%= for source <- @sources do %>
+        <Source.box source={source} />
+      <% end %>
+    </div>
+  </section>
+</article>

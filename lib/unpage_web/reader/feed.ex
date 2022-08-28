@@ -3,9 +3,11 @@ defmodule UnPageWeb.App.Feed do
   use UnPageWeb, :live_view
   import UnPage.Daemon
 
+  alias Components.Feed
+
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket, layout: {UnPageWeb.LayoutView, "reader.html"}}
+    {:ok, assign(socket, :source, nil), layout: {UnPageWeb.LayoutView, "reader.html"}}
   end
 
   @impl true

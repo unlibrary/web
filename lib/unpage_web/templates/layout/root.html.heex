@@ -2,40 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="csrf-token" content={csrf_token_value()} />
 
     <%= live_title_tag(assigns[:page_title] || "Regain control over your feeds",
-      suffix: " · Unlibrary"
+      suffix: " — Unlibrary"
     ) %>
 
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
 
     <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
 
-    <meta name="title" content="Unlibrary">
-    <meta name="description" content="a rss reader written in elixir ">
-    <meta name="keywords" content="rss, reader, elixir, erlang, unlibrary, phoenix, liveview, reading, books, library">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="author" content="0b11">
+    <meta name="title" content="Unlibrary" />
+    <meta name="description" content="a rss reader written in elixir " />
+    <meta
+      name="keywords"
+      content="rss, reader, elixir, erlang, unlibrary, phoenix, liveview, reading, books, library"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="0b11" />
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://unlibrary.0b11.dev">
-    <meta property="og:title" content="Unlibrary">
-    <meta property="og:description" content="a rss reader written in elixir">
-    <meta property="og:image" content="/images/screenshot.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://unlibrary.0b11.dev" />
+    <meta property="og:title" content="Unlibrary" />
+    <meta property="og:description" content="a rss reader written in elixir" />
+    <meta property="og:image" content="/images/screenshot.png" />
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://unlibrary.0b11.dev">
-    <meta property="twitter:title" content="Unlibrary">
-    <meta property="twitter:description" content="a rss reader written in elixir">
-    <meta property="twitter:image" content="/images/screenshot.png">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://unlibrary.0b11.dev" />
+    <meta property="twitter:title" content="Unlibrary" />
+    <meta property="twitter:description" content="a rss reader written in elixir" />
+    <meta property="twitter:image" content="/images/screenshot.png" />
   </head>
   <body class="pageroot">
     <%= @inner_content %>

@@ -1,0 +1,9 @@
+<header class="flex justify:between items:end" style="margin-block-end: var(--s4)">
+  <Source.box source={@source} />
+
+  <%= if @added? do %>
+    <Feed.controls />
+  <% end %>
+</header>
+
+<Feed.list entries={@entries} show_controls?={@added?} />

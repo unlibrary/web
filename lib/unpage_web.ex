@@ -72,6 +72,7 @@ defmodule UnPageWeb do
   def component do
     quote do
       use Phoenix.Component
+      use Phoenix.HTML
 
       unquote(view_helpers())
     end
@@ -116,6 +117,8 @@ defmodule UnPageWeb do
 
       import UnPageWeb.ErrorHelpers
       import UnPageWeb.Gettext
+
+      alias UnPageWeb.App.Components
 
       unquote(verified_routes())
     end

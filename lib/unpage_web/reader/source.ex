@@ -3,27 +3,34 @@ defmodule UnPageWeb.App.Source do
   use UnPageWeb, :live_view
   import UnPage.Daemon
 
+  alias Components.Source
+  alias Components.Feed
+
   @impl true
   def mount(%{"id" => id}, _session, socket) do
     {:ok, source} = make_call(UnLib.Sources.get(id))
 
     socket =
       socket
-      |> assign(:id, source.id)
-      |> assign(:title, source.name)
+      |> assign(:page_title, "~#{source.name}")
+      |> assign(:source, source)
+      |> assign(:added?, user_has_source?(source))
       |> assign(:entries, make_call(UnLib.Entries.list_all(source)))
 
     {:ok, socket, layout: {UnPageWeb.LayoutView, "reader.html"}}
   end
 
-  @impl true
-  def render(assigns) do
-    render(UnPageWeb.ReaderView, "feed.html", assigns)
+  defp user_has_source?(source) do
+    make_call(UnLib.Sources.list(user()))
+    |> Enum.map(&Kernel.==(&1.id, source.id))
+    |> Enum.filter(& &1)
+    |> Enum.empty?()
+    |> Kernel.not()
   end
 
   @impl true
   def handle_event("read-all", _value, socket) do
-    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.id))
+    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     make_call(UnLib.Entries.read_all(source))
     entries = make_call(UnLib.Entries.list_all(source))
@@ -33,7 +40,7 @@ defmodule UnPageWeb.App.Source do
 
   @impl true
   def handle_event("prune", _value, socket) do
-    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.id))
+    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     make_call(UnLib.Entries.prune(source))
     entries = make_call(UnLib.Entries.list_all(source))
@@ -43,7 +50,7 @@ defmodule UnPageWeb.App.Source do
 
   @impl true
   def handle_event("pull", _value, socket) do
-    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.id))
+    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     make_call(UnLib.Feeds.pull(source))
     entries = make_call(UnLib.Entries.list_all(source))
@@ -53,7 +60,7 @@ defmodule UnPageWeb.App.Source do
 
   @impl true
   def handle_event("read", %{"id" => entry_id}, socket) do
-    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.id))
+    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
     {:ok, entry} = make_call(UnLib.Entries.get(entry_id))
 
     case entry do
@@ -68,7 +75,7 @@ defmodule UnPageWeb.App.Source do
 
   @impl true
   def handle_event("delete", %{"id" => entry_id}, socket) do
-    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.id))
+    {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     :ok = make_call(UnLib.Entries.delete(entry_id))
     entries = make_call(UnLib.Entries.list_all(source))

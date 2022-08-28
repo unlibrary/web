@@ -6,10 +6,13 @@
 
     <ul>
       <li class="before:icon icon:book-open">
-        <.link class="color:secondary" navigate={~p"/reader"}>All articles</.link>
+        <.link class="color:secondary" navigate={url(~p"/reader")}>All articles</.link>
       </li>
       <li class="before:icon icon:bell-alert">
-        <.link class="color:secondary" navigate={~p"/reader/new"}>New articles</.link>
+        <.link class="color:secondary" navigate={url(~p"/reader/new")}>New articles</.link>
+      </li>
+      <li class="before:icon icon:hashtag">
+        <.link class="color:secondary" navigate={url(~p"/reader/discover")}>Discover</.link>
       </li>
     </ul>
 
@@ -18,7 +21,10 @@
     <ul>
       <%= for source <- @user.sources do %>
         <li class="before:~">
-          <.link class="color:secondary" navigate={~p"/reader/source/#{source.id}"}>
+          <.link
+            class="color:secondary font:light"
+            navigate={url(~p"/reader/source/#{source.id}")}
+          >
             <%= source.name %>
           </.link>
         </li>

@@ -5,7 +5,11 @@ defmodule UnPageWeb.Pages.Login do
 
   @impl true
   def mount(_params, _session, socket) do
-    socket = assign(socket, :error, nil)
+    socket =
+      socket
+      |> assign(:error, nil)
+      |> assign(:page_title, "Login")
+
     {:ok, socket, layout: {UnPageWeb.LayoutView, "page.html"}}
   end
 

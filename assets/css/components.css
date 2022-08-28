@@ -94,3 +94,40 @@ div[data-phx-main="true"] {
   font-size: 1em !important;
   font-weight: bolder;
 }
+
+.source-box {
+  border: 1px solid var(--gray-100);
+  background: var(--background);
+  padding: var(--s1);
+  margin-block-start: var(--s-2);
+  display: flex;
+  gap: var(--s-1);
+  align-items: center;
+  min-width: 27em;
+}
+
+.source-box,
+.source-box .feed-icon {
+  border-radius: 0.25em;
+}
+
+.source-box .feed-icon {
+  max-height: 3em;
+}
+
+.source-box .title,
+.source-box .url,
+.source-box .type {
+  margin: 0;
+}
+
+.source-box .type {
+  line-height: 1em;
+  font-family: var(--font-serif);
+  font-size: 0.85em;
+  color: var(--secondary-alt);
+}
+
+.source-box .url {
+  font-style: italic;
+}
