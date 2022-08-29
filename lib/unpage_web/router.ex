@@ -20,6 +20,7 @@ defmodule UnPageWeb.Router do
       pipe_through :browser
 
       live "/", Index
+      live "/about", About
       live "/login", Login
     end
   end
