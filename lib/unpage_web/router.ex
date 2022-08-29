@@ -22,6 +22,7 @@ defmodule UnPageWeb.Router do
       live "/", Index
       live "/about", About
       live "/login", Login
+      live "/signup", SignUp
     end
   end
 

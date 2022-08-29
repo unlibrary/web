@@ -326,6 +326,10 @@ audio {
   font-size: 3em !important;
 }
 
+.text\:center {
+  text-align: center !important;
+}
+
 .flex {
   display: flex !important;
 }

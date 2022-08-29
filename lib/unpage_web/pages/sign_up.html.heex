@@ -3,16 +3,16 @@
     <%= if @error do %>
       <p class="error"><%= @error %></p>
     <% end %>
-    <.form :let={f} for={:login} phx-submit="login" class="the-form square">
+    <.form :let={f} for={:signup} phx-submit="signup" class="the-form square">
       <%= label(f, :username, class: "label") %>
       <%= text_input(f, :username, class: "input") %>
 
       <%= label(f, :password, class: "label") %>
       <%= password_input(f, :password, class: "input") %>
 
-      <%= submit("Sign in", class: "button cta") %>
+      <%= submit("Sign up", class: "button cta") %>
 
-      <p class="size:small text:center width:full">Don't have an account yet? <.link navigate={~p"/signup"}>Sign up</.link></p>
+      <p class="size:small text:center width:full">Already have an account? <.link navigate={~p"/login"}>Login</.link></p>
     </.form>
   </div>
 </div>
