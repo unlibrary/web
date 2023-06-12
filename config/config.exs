@@ -22,6 +22,6 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :unpage,
-  server: :"readerd@delta.localdomain"
+  server: :"readerd@localhost"
 
 import_config "#{config_env()}.exs"

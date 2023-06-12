@@ -1,3 +1,3 @@
 #!/bin/bash
 
-iex --name unpage -S mix phx.server
+iex --sname unpage -S mix phx.server
