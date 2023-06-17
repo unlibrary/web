@@ -4,7 +4,11 @@
   <h1 class="title"><a href={@url}><%= @title %></a></h1>
 
   <div class="content">
-    <%= @body |> raw() %>
+    <%= if String.starts_with?(@body, "https://www.youtube.com/watch?v=") do %>
+      <iframe width="100%" style="aspect-ratio: 16 / 9;" src={"https://yewtu.be/embed/#{String.split(@body, "?v=") |> Enum.at(1)}"}></iframe>
+    <% else %>
+      <%= @body |> raw() %>
+    <% end %>
   </div>
 
   <footer class="footer">
