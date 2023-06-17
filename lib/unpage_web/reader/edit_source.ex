@@ -24,7 +24,9 @@ defmodule UnPageWeb.App.EditSource do
         socket
       ) do
     type = String.to_existing_atom(type)
-    {:ok, source} = make_call(UnLib.Sources.new(url, type, name))
+
+    {:ok, source} = make_call(UnLib.Sources.get_by_url(socket.assigns.url))
+    {:ok, source} = make_call(UnLib.Sources.update(source, url, type, name))
 
     {:noreply, assign(socket, user: user(), url: source.url, name: source.name, type: source.type)}
   end

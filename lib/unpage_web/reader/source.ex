@@ -59,7 +59,7 @@ defmodule UnPageWeb.App.Source do
   end
 
   @impl true
-  def handle_event("read", %{"id" => entry_id}, socket) do
+  def handle_event("toggle-read-entry", %{"id" => entry_id}, socket) do
     {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
     {:ok, entry} = make_call(UnLib.Entries.get(entry_id))
 
@@ -74,7 +74,7 @@ defmodule UnPageWeb.App.Source do
   end
 
   @impl true
-  def handle_event("delete", %{"id" => entry_id}, socket) do
+  def handle_event("delete-entry", %{"id" => entry_id}, socket) do
     {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     :ok = make_call(UnLib.Entries.delete(entry_id))
