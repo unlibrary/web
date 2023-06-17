@@ -35,7 +35,7 @@
       <h3 class="section-heading">Sources</h3>
 
       <ul>
-        <%= for source <- @user.sources do %>
+        <%= for source <- Enum.sort_by(@user.sources, &String.downcase(&1.name)) do %>
           <li class="before:~">
             <.link
               class="color:secondary font:light"
