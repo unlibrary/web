@@ -80,7 +80,7 @@ defmodule UnPageWeb.App.Components.Feed do
 
   def small_controls(assigns) do
     ~H"""
-    <button class="button-small square" phx-click="read" phx-value-id={@entry_id} title="Mark as read">
+    <button class="button-small square" phx-click="toggle-read-entry" phx-value-id={@entry_id} title="Mark as read">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
         <path
           fill-rule="evenodd"
@@ -89,7 +89,7 @@ defmodule UnPageWeb.App.Components.Feed do
         />
       </svg>
     </button>
-    <button class="button-small square" phx-click="delete" phx-value-id={@entry_id} title="Delete">
+    <button class="button-small square" phx-click="delete-entry" phx-value-id={@entry_id} title="Delete">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
         <path
           fill-rule="evenodd"

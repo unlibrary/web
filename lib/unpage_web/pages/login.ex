@@ -21,10 +21,10 @@ defmodule UnPageWeb.Pages.Login do
       ) do
     socket =
       case make_call(UnLibD.Auth.login(username, password)) do
-        :ok ->
+        {:ok, _account} ->
           push_navigate(socket, to: ~p"/reader")
 
-        error ->
+        {:error, error} ->
           assign(socket, :error, format_error(error))
       end
 

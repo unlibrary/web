@@ -15,7 +15,7 @@ defmodule UnPageWeb.App.Source do
       |> assign(:page_title, "~#{source.name}")
       |> assign(:source, source)
       |> assign(:added?, user_has_source?(source))
-      |> assign(:entries, make_call(UnLib.Entries.list_all(source)))
+      |> assign(:entries, make_call(UnLib.Entries.list(source)))
 
     {:ok, socket, layout: {UnPageWeb.LayoutView, "reader.html"}}
   end
@@ -33,7 +33,7 @@ defmodule UnPageWeb.App.Source do
     {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     make_call(UnLib.Entries.read_all(source))
-    entries = make_call(UnLib.Entries.list_all(source))
+    entries = make_call(UnLib.Entries.list(source))
 
     {:noreply, assign(socket, :entries, entries)}
   end
@@ -43,7 +43,7 @@ defmodule UnPageWeb.App.Source do
     {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     make_call(UnLib.Entries.prune(source))
-    entries = make_call(UnLib.Entries.list_all(source))
+    entries = make_call(UnLib.Entries.list(source))
 
     {:noreply, assign(socket, :entries, entries)}
   end
@@ -53,7 +53,7 @@ defmodule UnPageWeb.App.Source do
     {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     make_call(UnLib.Feeds.pull(source))
-    entries = make_call(UnLib.Entries.list_all(source))
+    entries = make_call(UnLib.Entries.list(source))
 
     {:noreply, assign(socket, :entries, entries)}
   end
@@ -68,7 +68,7 @@ defmodule UnPageWeb.App.Source do
       _ -> {:ok, _entry} = make_call(UnLib.Entries.unread(entry))
     end
 
-    entries = make_call(UnLib.Entries.list_all(source))
+    entries = make_call(UnLib.Entries.list(source))
 
     {:noreply, assign(socket, :entries, entries)}
   end
@@ -78,7 +78,7 @@ defmodule UnPageWeb.App.Source do
     {:ok, source} = make_call(UnLib.Sources.get(socket.assigns.source.id))
 
     :ok = make_call(UnLib.Entries.delete(entry_id))
-    entries = make_call(UnLib.Entries.list_all(source))
+    entries = make_call(UnLib.Entries.list(source))
 
     {:noreply, assign(socket, :entries, entries)}
   end

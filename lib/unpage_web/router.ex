@@ -30,8 +30,8 @@ defmodule UnPageWeb.Router do
     scope "/reader", UnPageWeb.App do
       pipe_through :browser
 
-      live "/", Feed
-      live "/new", Feed
+      live "/", Feed.AllArticles
+      live "/new", Feed.NewArticles
       live "/discover", Discover
       live "/source/add", AddSource
       live "/source/:id", Source

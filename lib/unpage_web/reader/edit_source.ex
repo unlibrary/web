@@ -3,8 +3,6 @@ defmodule UnPageWeb.App.EditSource do
   use UnPageWeb, :live_view
   import UnPage.Daemon
 
-  alias UnPageWeb.ReaderView
-
   @impl true
   def mount(%{"id" => id}, _session, socket) do
     {:ok, source} = make_call(UnLib.Sources.get(id))
@@ -20,11 +18,6 @@ defmodule UnPageWeb.App.EditSource do
   end
 
   @impl true
-  def render(assigns) do
-    render(ReaderView, "edit_source.html", assigns)
-  end
-
-  @impl true
   def handle_event(
         "save",
         %{"source" => %{"url" => url, "type" => type, "name" => name}},
@@ -33,6 +26,6 @@ defmodule UnPageWeb.App.EditSource do
     type = String.to_existing_atom(type)
     {:ok, source} = make_call(UnLib.Sources.new(url, type, name))
 
-    {:noreply, assign(socket, user: user, url: source.url, name: source.name, type: source.type)}
+    {:noreply, assign(socket, user: user(), url: source.url, name: source.name, type: source.type)}
   end
 end
