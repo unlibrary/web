@@ -67,7 +67,12 @@ body {
   --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
     monospace;
 
-  --font-size-viewport: ((100vw - 600px) / (1000 - 600));
+  --font-size-min-width: 600;
+  --font-size-min-width: 1000;
+  --font-size-viewport: (
+    (100vw - (var(--font-size-min-width) * 1px)) /
+      (var(--font-size-max-width) - var(--font-size-min-width))
+  );
 }
 
 /* Global styles */
@@ -75,13 +80,25 @@ body {
 body {
   font-family: var(--font-system);
 
-  --max-font-size: 20;
-  --min-font-size: 18;
+  --max-font-size: 18;
+  --min-font-size: 16;
 
-  font-size: calc(
-    var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) *
-      var(--font-size-viewport)
-  );
+  font-size: var(--min-font-size);
+}
+
+@media screen and (min-width: calc(var(--font-size-min-width) * 1px)) {
+  body {
+    font-size: calc(
+      var(--min-font-size) * 1px + (var(--max-font-size) - var(--min-font-size)) *
+        var(--font-size-viewport)
+    );
+  }
+}
+
+@media screen and (min-width: calc(var(--font-size-max-width) * 1px)) {
+  body {
+    font-size: var(--max-font-size);
+  }
 }
 
 * {
